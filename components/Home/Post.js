@@ -6,9 +6,15 @@ const Post = ({post}) => {
     <View style={{marginBottom: 30}}>
       <View style={{ borderBottomColor: '#2a2a2a', borderBottomWidth: 2}}/>
       <PostHeader post={post}/>
+      <PostImage post={post}/>
     </View>
   )
 }
+const PostImage = ({post}) => (
+  <View style={{width: '100%', height: 400,}}>
+    <Image source={{uri: post.imageUrl}} style={{height: '100%', resizeMode: 'cover'}}/>
+  </View>
+)
 
 const PostHeader = ({post}) => (
   <View style={{flexDirection: 'row', justifyContent: 'space-between', margin: 5, alignItems: 'center'}}>
