@@ -1,5 +1,6 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { postFooterIcons } from '../../data/icons'
 
 const Post = ({post}) => {
   return (
@@ -7,14 +8,12 @@ const Post = ({post}) => {
       <View style={{ borderBottomColor: '#2a2a2a', borderBottomWidth: 2}}/>
       <PostHeader post={post}/>
       <PostImage post={post}/>
+      <View style={{marginHorizontal: 15, marginTop: 10}}>
+        <PostFooter />
+      </View>
     </View>
   )
 }
-const PostImage = ({post}) => (
-  <View style={{width: '100%', height: 400,}}>
-    <Image source={{uri: post.imageUrl}} style={{height: '100%', resizeMode: 'cover'}}/>
-  </View>
-)
 
 const PostHeader = ({post}) => (
   <View style={{flexDirection: 'row', justifyContent: 'space-between', margin: 5, alignItems: 'center'}}>
@@ -25,6 +24,32 @@ const PostHeader = ({post}) => (
     <Text style={{color: 'white', fontWeight: '900', marginRight: 5}}>...</Text>
   </View>
 )
+
+const PostImage = ({post}) => (
+  <View style={{width: '100%', height: 400,}}>
+    <Image source={{uri: post.imageUrl}} style={{height: '100%', resizeMode: 'cover'}}/>
+  </View>
+)
+
+const PostFooter = () => (
+  <View style={{flexDirection: 'row'}}>
+    <View style={styles.leftFooterIconsContainer}>
+      <Icon imgStyle={styles.footerIcon} imgUrl={postFooterIcons[0].imageUrl}/>
+      <Icon imgStyle={styles.footerIcon} imgUrl={postFooterIcons[1].imageUrl}/>
+      <Icon imgStyle={[styles.footerIcon, styles.shareIcon]} imgUrl={postFooterIcons[2].imageUrl}/>
+    </View>
+    <View style={{flex: 1, alignItems: 'flex-end'}}>
+      <Icon imgStyle={styles.footerIcon} imgUrl={postFooterIcons[3].imageUrl}/>
+    </View>
+  </View>
+)
+
+const Icon = ({imgStyle, imgUrl}) => (
+  <TouchableOpacity>
+    <Image style={imgStyle} source={{uri: imgUrl}}/>
+  </TouchableOpacity>
+)
+
 export default Post
 
 const styles = StyleSheet.create({
@@ -35,5 +60,18 @@ const styles = StyleSheet.create({
     marginLeft: 6,
     borderWidth: 1.6,
     borderColor: '#ff8501',
+  },
+  footerIcon: {
+    width: 33,
+    height: 33,
+  },
+  shareIcon: {
+    transform: [{rotate: '320deg'}],
+    marginTop: -3,
+  },
+  leftFooterIconsContainer: {
+    flexDirection: 'row',
+    width: '32%',
+    justifyContent: 'space-between'
   }
 })
