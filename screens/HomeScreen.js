@@ -14,7 +14,6 @@ const HomeScreen = () => {
         {POSTS.map((post, index) => (
           <Post post={post} key={index}/>
         ))}
-        
       </ScrollView>
     </SafeAreaView>
   )
