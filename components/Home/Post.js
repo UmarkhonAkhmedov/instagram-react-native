@@ -105,8 +105,8 @@ const styles = StyleSheet.create({
     borderColor: '#ff8501',
   },
   footerIcon: {
-    width: 33,
-    height: 33,
+    width: 30,
+    height: 30,
   },
   shareIcon: {
     transform: [{rotate: '320deg'}],

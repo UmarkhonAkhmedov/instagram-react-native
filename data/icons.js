@@ -6,14 +6,14 @@ export const postFooterIcons = [
   },
   {
     name: 'Comment',
-    imageUrl: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/plus-2-math.png',
+    imageUrl: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/topic.png',
   },
   {
     name: 'Share',
-    imageUrl: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/like--v1.png',
+    imageUrl: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/sent.png',
   },
   {
     name: 'Save',
-    imageUrl: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/facebook-messenger.png',
+    imageUrl: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/bookmark-ribbon--v1.png',
   },
 ]
