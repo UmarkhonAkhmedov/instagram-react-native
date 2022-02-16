@@ -6,7 +6,7 @@ export const postFooterIcons = [
   },
   {
     name: 'Comment',
-    imageUrl: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/like--v1.png',
+    imageUrl: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/plus-2-math.png',
   },
   {
     name: 'Share',
@@ -14,6 +14,6 @@ export const postFooterIcons = [
   },
   {
     name: 'Save',
-    imageUrl: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/like--v1.png',
+    imageUrl: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/facebook-messenger.png',
   },
 ]
