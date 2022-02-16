@@ -14,11 +14,16 @@ const FormikPostUploader = () => {
   const [thumbnailUrl, setThumbnailUrl] = useState(PLACEHOLDER_IMG)
 
   return (
-    <Formik initialValues={{caption: '', imageUrl: ''}} onSubmit={(values) => console.log(values)} validationSchema={uploadPostSchema}> 
+    <Formik 
+        initialValues={{caption: '', imageUrl: ''}} 
+        onSubmit={values => console.log(values)} 
+        validationSchema={uploadPostSchema}
+        validateOnMount={true}
+        > 
       {({handleBlur, handleChange, handleSubmit, values, errors, isValid}) => 
         <>
           <View style={{margin: 20, justifyContent: 'space-between', flexDirection: 'row'}}>
-            <Image source={{uri: PLACEHOLDER_IMG}} style={{width: 100, height: 100}}/>
+            <Image source={{uri: thumbnailUrl ? thumbnailUrl : PLACEHOLDER_IMG}} style={{width: 100, height: 100}}/>
             <View style={{flex: 1, marginLeft: 12}}>
               <TextInput 
                 style={{color: 'white', fontSize: 20}} 
@@ -33,6 +38,7 @@ const FormikPostUploader = () => {
           </View>
           <View style={{ borderBottomColor: '#2a2a2a', borderBottomWidth: 1}}/>
           <TextInput 
+          onChange={(e) => setThumbnailUrl(e.nativeEvent.text)}
             style={{color: 'white', fontSize: 18}} 
             placeholder='Enter Image Url' 
             placeholderTextColor='gray'
