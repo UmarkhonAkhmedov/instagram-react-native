@@ -1,14 +1,22 @@
-import { Button, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Alert, Button, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, {useState} from 'react'
 import {Formik} from 'formik'
 import * as Yup from 'yup'
 import Validator from 'email-validator'
+import firebase from '../../firebase'
 
 const LoginForm = ({navigation}) => {
   const LoginFormSchema = Yup.object().shape({
     email: Yup.string().email().required('An email is required'),
     password: Yup.string().required().min(6, 'Your password has to have at least 6 characters')
   })
+  const onLogin = async (email, password) => {
+    try {
+      await firebase.auth().signInWithEmailAndPassword(email, password)
+    } catch(error){
+      Alert.alert(error.message)
+    }
+  }
 
   return (
     <View style={styles.wrapper}>
