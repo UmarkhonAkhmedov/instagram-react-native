@@ -14,7 +14,7 @@ const screenOptions = {
 
 const SignedInStack = () => (
   <NavigationContainer>
-    <Stack.Navigator initialRouteName='SignUpScreen' screenOptions={screenOptions}>
+    <Stack.Navigator initialRouteName='LoginScreen' screenOptions={screenOptions}>
       <Stack.Screen name='HomeScreen' component={HomeScreen}/>
       <Stack.Screen name='NewPostScreen' component={NewPostScreen}/>
       <Stack.Screen name='LoginScreen' component={LoginScreen}/>
