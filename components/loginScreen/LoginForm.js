@@ -7,7 +7,7 @@ import Validator from 'email-validator'
 const LoginForm = () => {
   const LoginFormSchema = Yup.object().shape({
     email: Yup.string().email().required('An email is required'),
-    password: Yup.string().required().min(6, 'Your password has to have at least 8 characters')
+    password: Yup.string().required().min(6, 'Your password has to have at least 6 characters')
   })
 
   return (
