@@ -3,7 +3,9 @@ import React, {useState} from 'react'
 import {Formik} from 'formik'
 import * as Yup from 'yup'
 import Validator from 'email-validator'
-import firebase from '../../firebase'
+import app from '../../firebase'
+import "firebase/auth";
+import { signInWithEmailAndPassword } from 'firebase/auth'
 
 const LoginForm = ({navigation}) => {
   const LoginFormSchema = Yup.object().shape({
@@ -12,7 +14,7 @@ const LoginForm = ({navigation}) => {
   })
   const onLogin = async (email, password) => {
     try {
-      await firebase.auth().signInWithEmailAndPassword(email, password)
+      await signInWithEmailAndPassword(app, email, password)
     } catch(error){
       Alert.alert(error.message)
     }
@@ -23,7 +25,7 @@ const LoginForm = ({navigation}) => {
       <Formik 
         initialValues={{email: '', password: ''}}
         onSubmit={(values) => {
-          console.log(values)
+          onLogin(values.email, values.password)
         }}
         validationSchema={LoginFormSchema}
         validateOnMount={true}
