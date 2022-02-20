@@ -1,5 +1,5 @@
-import { Alert, Button, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import React, {useState} from 'react'
+import { Alert, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import React from 'react'
 import {Formik} from 'formik'
 import * as Yup from 'yup'
 import Validator from 'email-validator'
